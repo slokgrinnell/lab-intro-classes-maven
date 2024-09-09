@@ -28,10 +28,10 @@ public class BigFraction {
   // +-----------+
 
   /** The default numerator when creating fractions. */
-  private static final int DEFAULT_NUMERATOR = new BigInteger(2);
+  private static final BigInteger DEFAULT_NUMERATOR = BigInteger.valueOf(2);
 
   /** The default denominator when creating fractions. */
-  private static final int DEFAULT_DENOMINATOR = new BigInteger(7);
+  private static final BigInteger DEFAULT_DENOMINATOR = BigInteger.valueOf(7);
 
   // +--------+-------------------------------------------------------
   // | Fields |
@@ -116,11 +116,11 @@ public class BigFraction {
     BigInteger resultDenominator;
 
     // The denominator of the result is the product of this object's
-    // denominator and addMe's denominator
-    resultDenominator = this.denom.multiply(addMe.denom);
+    // denominator and addend's denominator
+    resultDenominator = this.denom.multiply(addend.denom);
     // The numerator is more complicated
     resultNumerator =
-      (this.num.multiply(addMe.denom)).add(addMe.num.multiply(this.denom));
+      (this.num.multiply(addend.denom)).add(addend.num.multiply(this.denom));
 
     // Return the computed value
     return new BigFraction(resultNumerator, resultDenominator);
